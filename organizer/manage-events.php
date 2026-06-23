@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         $upd = $db->prepare("UPDATE events SET status='finished' WHERE id=? AND organizer_id=?");
         $upd->execute([$eventId, $user['id']]);
     }
-    header('Location: /organizer/manage-events.php?msg=updated');
+    header('Location: ' . BASE_URL . '/organizer/manage-events.php?msg=updated');
     exit;
 }
 
@@ -37,7 +37,7 @@ include '../includes/navbar.php';
   <div class="topbar">
     <span class="topbar-title">Manage Events</span>
     <div class="topbar-actions">
-      <a href="/organizer/create-event.php" class="btn btn-gold btn-sm">➕ New Event</a>
+      <a href="<?= BASE_URL ?>/organizer/create-event.php" class="btn btn-gold btn-sm">➕ New Event</a>
     </div>
   </div>
 
@@ -55,7 +55,7 @@ include '../includes/navbar.php';
       <?php endforeach; ?>
     </select>
     <button type="submit" class="btn btn-primary btn-sm">Filter</button>
-    <a href="/organizer/manage-events.php" class="btn btn-reset btn-sm">Clear</a>
+    <a href="<?= BASE_URL ?>/organizer/manage-events.php" class="btn btn-reset btn-sm">Clear</a>
   </form>
 
   <?php if (empty($events)): ?>
@@ -63,7 +63,7 @@ include '../includes/navbar.php';
       <div class="empty-icon">📅</div>
       <h3>No events found</h3>
       <p>You haven't created any events yet. Get started by creating your first event.</p>
-      <a href="/organizer/create-event.php" class="btn btn-gold">Create Event</a>
+      <a href="<?= BASE_URL ?>/organizer/create-event.php" class="btn btn-gold">Create Event</a>
     </div>
   <?php else: ?>
     <div class="events-grid">
@@ -81,8 +81,8 @@ include '../includes/navbar.php';
             <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
               <span class="badge badge-<?= $ev['status'] ?>"><?= ucfirst($ev['status']) ?></span>
               <div style="display:flex;gap:8px;">
-                <a href="/organizer/seller-applications.php?event_id=<?= $ev['id'] ?>" class="btn btn-sm btn-outline">Sellers</a>
-                <a href="/organizer/event-orders.php?event_id=<?= $ev['id'] ?>" class="btn btn-sm btn-primary">Orders</a>
+                <a href="<?= BASE_URL ?>/organizer/seller-applications.php?event_id=<?= $ev['id'] ?>" class="btn btn-sm btn-outline">Sellers</a>
+                <a href="<?= BASE_URL ?>/organizer/event-orders.php?event_id=<?= $ev['id'] ?>" class="btn btn-sm btn-primary">Orders</a>
                 <?php if ($ev['status'] === 'approved'): ?>
                   <form method="POST" style="display:inline;">
                     <input type="hidden" name="event_id" value="<?= $ev['id'] ?>">

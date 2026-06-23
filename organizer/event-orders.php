@@ -82,7 +82,7 @@ include '../includes/navbar.php';
       <?php endforeach; ?>
     </select>
     <button type="submit" class="btn btn-primary btn-sm">Filter</button>
-    <a href="/organizer/event-orders.php" class="btn btn-reset btn-sm">Clear</a>
+    <a href="<?= BASE_URL ?>/organizer/event-orders.php" class="btn btn-reset btn-sm">Clear</a>
   </form>
 
   <div class="card">

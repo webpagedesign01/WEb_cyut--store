@@ -36,7 +36,7 @@ include '../includes/navbar.php';
   <div class="topbar">
     <span class="topbar-title">Seller Dashboard</span>
     <div class="topbar-actions">
-      <a href="/seller/manage-products.php" class="btn btn-gold btn-sm">➕ Add Product</a>
+      <a href="<?= BASE_URL ?>/seller/manage-products.php" class="btn btn-gold btn-sm">➕ Add Product</a>
     </div>
   </div>
 
@@ -72,14 +72,14 @@ include '../includes/navbar.php';
 
   <?php if (!$myStore): ?>
     <div class="alert alert-warning">
-      You haven't set up a store yet. <a href="/seller/apply-event.php" style="font-weight:700;">Apply to an event first →</a>
+      You haven't set up a store yet. <a href="<?= BASE_URL ?>/seller/apply-event.php" style="font-weight:700;">Apply to an event first →</a>
     </div>
   <?php endif; ?>
 
   <div class="card">
     <div class="card-header">
       <h3>Recent Orders</h3>
-      <a href="/seller/manage-orders.php" class="btn btn-outline btn-sm">View All</a>
+      <a href="<?= BASE_URL ?>/seller/manage-orders.php" class="btn btn-outline btn-sm">View All</a>
     </div>
     <div class="table-wrap">
       <table>
@@ -97,7 +97,7 @@ include '../includes/navbar.php';
                 <td>Rp <?= number_format($ord['total_price'], 0, ',', '.') ?></td>
                 <td><span class="badge badge-<?= $ord['status'] ?>"><?= ucfirst($ord['status']) ?></span></td>
                 <td><?= date('d M, H:i', strtotime($ord['created_at'])) ?></td>
-                <td><a href="/seller/manage-orders.php?order_id=<?= $ord['id'] ?>" class="btn btn-sm btn-outline">Detail</a></td>
+                <td><a href="<?= BASE_URL ?>/seller/manage-orders.php?order_id=<?= $ord['id'] ?>" class="btn btn-sm btn-outline">Detail</a></td>
               </tr>
             <?php endforeach; ?>
           <?php endif; ?>

@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'], $_POST['s
             $upd->execute([$newStatus, $orderId]);
         }
     }
-    header('Location: /seller/manage-orders.php?msg=updated');
+    header('Location: ' . BASE_URL . '/seller/manage-orders.php?msg=updated');
     exit;
 }
 
@@ -72,7 +72,7 @@ include '../includes/navbar.php';
           <?php endforeach; ?>
         </select>
         <button type="submit" class="btn btn-primary btn-sm">Filter</button>
-        <a href="/seller/manage-orders.php" class="btn btn-reset btn-sm">Clear</a>
+        <a href="<?= BASE_URL ?>/seller/manage-orders.php" class="btn btn-reset btn-sm">Clear</a>
       </form>
 
       <div class="card">

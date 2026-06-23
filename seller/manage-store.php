@@ -54,7 +54,7 @@ include '../includes/navbar.php';
   <div class="topbar">
     <span class="topbar-title">My Store</span>
     <div class="topbar-actions">
-      <a href="/seller/manage-products.php" class="btn btn-gold btn-sm">Manage Products →</a>
+      <a href="<?= BASE_URL ?>/seller/manage-products.php" class="btn btn-gold btn-sm">Manage Products →</a>
     </div>
   </div>
 
@@ -72,7 +72,7 @@ include '../includes/navbar.php';
 
   <?php if (empty($approvedEvents)): ?>
     <div class="alert alert-warning">
-      You need to be approved for an event before creating a store. <a href="/seller/apply-event.php" style="font-weight:700;">Apply to an event →</a>
+      You need to be approved for an event before creating a store. <a href="<?= BASE_URL ?>/seller/apply-event.php" style="font-weight:700;">Apply to an event →</a>
     </div>
   <?php else: ?>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
@@ -132,7 +132,7 @@ include '../includes/navbar.php';
                 📅 <?= htmlspecialchars($store['event_title']) ?>
               </div>
             </div>
-            <a href="/seller/manage-products.php" class="btn btn-primary btn-block">Manage Products →</a>
+            <a href="<?= BASE_URL ?>/seller/manage-products.php" class="btn btn-primary btn-block">Manage Products →</a>
           </div>
         </div>
       <?php endif; ?>

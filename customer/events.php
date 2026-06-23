@@ -28,7 +28,7 @@ include '../includes/navbar.php';
   <div class="topbar">
     <span class="topbar-title">Browse Events</span>
     <div class="topbar-actions">
-      <a href="/customer/cart.php" class="btn btn-gold btn-sm">🛒 My Cart</a>
+      <a href="<?= BASE_URL ?>/customer/cart.php" class="btn btn-gold btn-sm">🛒 My Cart</a>
     </div>
   </div>
 
@@ -43,7 +43,7 @@ include '../includes/navbar.php';
            placeholder="Search events or locations..." value="<?= htmlspecialchars($search) ?>">
     <button type="submit" class="btn btn-primary">Search</button>
     <?php if ($search): ?>
-      <a href="/customer/events.php" class="btn btn-reset">Clear</a>
+      <a href="<?= BASE_URL ?>/customer/events.php" class="btn btn-reset">Clear</a>
     <?php endif; ?>
   </form>
 
@@ -69,7 +69,7 @@ include '../includes/navbar.php';
             <?php if ($ev['description']): ?>
               <p style="font-size:.82rem;color:var(--muted);margin-bottom:14px;"><?= htmlspecialchars(substr($ev['description'],0,100)) ?>...</p>
             <?php endif; ?>
-            <a href="/customer/stores.php?event_id=<?= $ev['id'] ?>" class="btn btn-gold btn-block">Explore Stores →</a>
+            <a href="<?= BASE_URL ?>/customer/stores.php?event_id=<?= $ev['id'] ?>" class="btn btn-gold btn-block">Explore Stores →</a>
           </div>
         </div>
       <?php endforeach; ?>

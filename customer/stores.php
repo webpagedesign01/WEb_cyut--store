@@ -41,7 +41,7 @@ include '../includes/navbar.php';
   <div class="topbar">
     <span class="topbar-title"><?= $event ? htmlspecialchars($event['title']) : 'All Stores' ?></span>
     <div class="topbar-actions">
-      <a href="/customer/cart.php" class="btn btn-gold btn-sm">🛒 Cart</a>
+      <a href="<?= BASE_URL ?>/customer/cart.php" class="btn btn-gold btn-sm">🛒 Cart</a>
     </div>
   </div>
 
@@ -61,7 +61,7 @@ include '../includes/navbar.php';
     <input type="text" name="search" class="form-control" style="max-width:240px;"
            placeholder="Search stores..." value="<?= htmlspecialchars($search) ?>">
     <button type="submit" class="btn btn-primary btn-sm">Search</button>
-    <a href="/customer/stores.php" class="btn btn-reset btn-sm">Clear</a>
+    <a href="<?= BASE_URL ?>/customer/stores.php" class="btn btn-reset btn-sm">Clear</a>
   </form>
 
   <?php if (empty($stores)): ?>
@@ -73,7 +73,7 @@ include '../includes/navbar.php';
   <?php else: ?>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;">
       <?php foreach ($stores as $store): ?>
-        <a href="/customer/product-detail.php?store_id=<?= $store['id'] ?>" style="text-decoration:none;">
+        <a href="<?= BASE_URL ?>/customer/product-detail.php?store_id=<?= $store['id'] ?>" style="text-decoration:none;">
           <div class="card" style="cursor:pointer;transition:box-shadow .2s,transform .2s;" onmouseover="this.style.boxShadow='var(--shadow)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
             <div style="background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);height:70px;display:flex;align-items:center;justify-content:center;font-size:2rem;">🏪</div>
             <div style="padding:16px 18px;">

@@ -51,7 +51,7 @@ $initials = strtoupper(substr($user['name'], 0, 2));
 
   <nav class="sidebar-nav">
     <?php foreach ($navItems as $item): ?>
-      <a href="<?= $item['href'] ?>"
+      <a href="<?= BASE_URL . $item['href'] ?>"
          class="<?= (strpos($currentPath, basename($item['href'])) !== false) ? 'active' : '' ?>">
         <span class="nav-icon"><?= $item['icon'] ?></span>
         <?= $item['label'] ?>
@@ -67,6 +67,6 @@ $initials = strtoupper(substr($user['name'], 0, 2));
         <div class="user-email"><?= htmlspecialchars($user['email']) ?></div>
       </div>
     </div>
-    <a href="/auth/logout.php" class="btn-logout">← Log Out</a>
+    <a href="<?= BASE_URL ?>/auth/logout.php" class="btn-logout">← Log Out</a>
   </div>
 </aside>

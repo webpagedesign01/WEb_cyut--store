@@ -34,7 +34,7 @@ include '../includes/navbar.php';
   <div class="topbar">
     <span class="topbar-title">Create New Event</span>
     <div class="topbar-actions">
-      <a href="/organizer/manage-events.php" class="btn btn-outline btn-sm">← My Events</a>
+      <a href="<?= BASE_URL ?>/organizer/manage-events.php" class="btn btn-outline btn-sm">← My Events</a>
     </div>
   </div>
 
@@ -48,7 +48,7 @@ include '../includes/navbar.php';
   <?php endif; ?>
   <?php if ($success): ?>
     <div class="alert alert-success"><?= htmlspecialchars($success) ?>
-      <a href="/organizer/manage-events.php" style="font-weight:700;">View Events →</a>
+      <a href="<?= BASE_URL ?>/organizer/manage-events.php" style="font-weight:700;">View Events →</a>
     </div>
   <?php endif; ?>
 

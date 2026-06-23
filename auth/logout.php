@@ -3,5 +3,5 @@
 session_start();
 session_unset();
 session_destroy();
-header('Location: /auth/login.php?msg=logged_out');
+header('Location: ' . BASE_URL . '/auth/login.php?msg=logged_out');
 exit;

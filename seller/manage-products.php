@@ -77,7 +77,7 @@ include '../includes/navbar.php';
   </div>
 
   <?php if (!$store): ?>
-    <div class="alert alert-warning">Please <a href="/seller/manage-store.php" style="font-weight:700;">set up your store first →</a></div>
+    <div class="alert alert-warning">Please <a href="<?= BASE_URL ?>/seller/manage-store.php" style="font-weight:700;">set up your store first →</a></div>
   <?php else: ?>
 
     <?php if ($error): ?>
@@ -140,7 +140,7 @@ include '../includes/navbar.php';
               <button type="submit" class="btn btn-gold"><?= $editProduct ? '💾 Update' : '➕ Add Product' ?></button>
               <button type="reset" class="btn btn-reset">Reset</button>
               <?php if ($editProduct): ?>
-                <a href="/seller/manage-products.php" class="btn btn-outline btn-sm">Cancel</a>
+                <a href="<?= BASE_URL ?>/seller/manage-products.php" class="btn btn-outline btn-sm">Cancel</a>
               <?php endif; ?>
             </div>
           </form>

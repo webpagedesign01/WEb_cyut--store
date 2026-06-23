@@ -6,6 +6,7 @@ define('DB_NAME', 'cyutfest_db');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
+define('BASE_URL', '/cyutfest');
 
 function getDB(): PDO {
     static $pdo = null;
@@ -29,7 +30,7 @@ function getDB(): PDO {
 function requireLogin(): void {
     if (session_status() === PHP_SESSION_NONE) session_start();
     if (empty($_SESSION['user_id'])) {
-        header('Location: /auth/login.php');
+        header('Location: ' . BASE_URL . '/auth/login.php');
         exit;
     }
 }
@@ -37,7 +38,7 @@ function requireLogin(): void {
 function requireRole(string $role): void {
     requireLogin();
     if ($_SESSION['role'] !== $role) {
-        header('Location: /index.php?error=unauthorized');
+        header('Location: ' . BASE_URL . '/index.php?error=unauthorized');
         exit;
     }
 }

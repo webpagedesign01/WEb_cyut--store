@@ -4,7 +4,7 @@ session_start();
 require_once '../config/database.php';
 
 if (!empty($_SESSION['user_id'])) {
-    header('Location: /' . ($_SESSION['role'] ?? 'customer') . '/dashboard.php');
+    header('Location: ' . BASE_URL . '/' . ($_SESSION['role'] ?? 'customer') . '/dashboard.php');
     exit;
 }
 
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['name']    = $user['name'];
             $_SESSION['email']   = $user['email'];
             $_SESSION['role']    = $user['role'];
-            header('Location: /' . $user['role'] . '/dashboard.php');
+            header('Location: ' . BASE_URL . '/' . $user['role'] . '/dashboard.php');
             exit;
         } else {
             $error = 'Invalid email or password.';
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Log In — CYUTFest</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
 </head>
 <body>
 <div class="auth-page">
@@ -99,15 +99,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
 
       <div class="auth-divider"><span>don't have an account?</span></div>
-      <a href="/auth/register.php" class="btn btn-outline btn-block">Create Account</a>
+      <a href="<?= BASE_URL ?>/auth/register.php" class="btn btn-outline btn-block">Create Account</a>
 
       <p style="text-align:center; margin-top:24px; font-size:0.78rem; color:var(--muted);">
-        <a href="/index.php" style="color:var(--gold);">← Back to home</a>
+        <a href="<?= BASE_URL ?>/index.php" style="color:var(--gold);">← Back to home</a>
       </p>
     </div>
   </div>
 
 </div>
-<script src="/assets/js/main.js"></script>
+<script src="<?= BASE_URL ?>/assets/js/main.js"></script>
 </body>
 </html>

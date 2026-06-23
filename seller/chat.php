@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['message'], $_POST['cu
         $ins = $db->prepare("INSERT INTO chats (customer_id, seller_id, sender_id, message, is_read, created_at) VALUES (?,?,?,?,0,NOW())");
         $ins->execute([$customerId, $user['id'], $user['id'], $message]);
     }
-    header('Location: /seller/chat.php?with=' . $customerId);
+    header('Location: ' . BASE_URL . '/seller/chat.php?with=' . $customerId);
     exit;
 }
 
@@ -68,7 +68,7 @@ include '../includes/navbar.php';
           </div>
         <?php else: ?>
           <?php foreach ($conversations as $conv): ?>
-            <a href="/seller/chat.php?with=<?= $conv['id'] ?>" style="text-decoration:none;">
+            <a href="<?= BASE_URL ?>/seller/chat.php?with=<?= $conv['id'] ?>" style="text-decoration:none;">
               <div class="chat-item <?= $activeCustomerId == $conv['id'] ? 'active' : '' ?>">
                 <div class="user-avatar" style="width:38px;height:38px;font-size:.8rem;flex-shrink:0;">
                   <?= strtoupper(substr($conv['name'],0,2)) ?>

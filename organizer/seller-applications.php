@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'], $_POST['app
                               WHERE sa.id = ? AND e.organizer_id = ?");
         $upd->execute([$action, $appId, $user['id']]);
     }
-    header('Location: /organizer/seller-applications.php?msg=' . $action);
+    header('Location: ' . BASE_URL . '/organizer/seller-applications.php?msg=' . $action);
     exit;
 }
 
@@ -77,7 +77,7 @@ include '../includes/navbar.php';
       <?php endforeach; ?>
     </select>
     <button type="submit" class="btn btn-primary btn-sm">Filter</button>
-    <a href="/organizer/seller-applications.php" class="btn btn-reset btn-sm">Clear</a>
+    <a href="<?= BASE_URL ?>/organizer/seller-applications.php" class="btn btn-reset btn-sm">Clear</a>
   </form>
 
   <div class="card">

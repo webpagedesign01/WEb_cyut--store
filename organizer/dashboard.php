@@ -36,7 +36,7 @@ include '../includes/navbar.php';
   <div class="topbar">
     <span class="topbar-title">Organizer Dashboard</span>
     <div class="topbar-actions">
-      <a href="/organizer/create-event.php" class="btn btn-gold btn-sm">➕ New Event</a>
+      <a href="<?= BASE_URL ?>/organizer/create-event.php" class="btn btn-gold btn-sm">➕ New Event</a>
     </div>
   </div>
 
@@ -80,7 +80,7 @@ include '../includes/navbar.php';
   <div class="card">
     <div class="card-header">
       <h3>Recent Events</h3>
-      <a href="/organizer/manage-events.php" class="btn btn-outline btn-sm">View All</a>
+      <a href="<?= BASE_URL ?>/organizer/manage-events.php" class="btn btn-outline btn-sm">View All</a>
     </div>
     <div class="table-wrap">
       <table>
@@ -95,7 +95,7 @@ include '../includes/navbar.php';
         </thead>
         <tbody>
           <?php if (empty($recentEvents)): ?>
-            <tr><td colspan="5" style="text-align:center;color:var(--muted);padding:32px">No events yet. <a href="/organizer/create-event.php" style="color:var(--gold)">Create one →</a></td></tr>
+            <tr><td colspan="5" style="text-align:center;color:var(--muted);padding:32px">No events yet. <a href="<?= BASE_URL ?>/organizer/create-event.php" style="color:var(--gold)">Create one →</a></td></tr>
           <?php else: ?>
             <?php foreach ($recentEvents as $ev): ?>
               <tr>
@@ -103,7 +103,7 @@ include '../includes/navbar.php';
                 <td><?= htmlspecialchars($ev['location']) ?></td>
                 <td><?= date('d M Y', strtotime($ev['event_date'])) ?></td>
                 <td><span class="badge badge-<?= $ev['status'] ?>"><?= ucfirst($ev['status']) ?></span></td>
-                <td><a href="/organizer/manage-events.php?id=<?= $ev['id'] ?>" class="btn btn-sm btn-outline">Manage</a></td>
+                <td><a href="<?= BASE_URL ?>/organizer/manage-events.php?id=<?= $ev['id'] ?>" class="btn btn-sm btn-outline">Manage</a></td>
               </tr>
             <?php endforeach; ?>
           <?php endif; ?>

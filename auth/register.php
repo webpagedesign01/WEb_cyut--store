@@ -4,7 +4,7 @@ session_start();
 require_once '../config/database.php';
 
 if (!empty($_SESSION['user_id'])) {
-    header('Location: /' . $_SESSION['role'] . '/dashboard.php');
+    header('Location: ' . BASE_URL . '/' . $_SESSION['role'] . '/dashboard.php');
     exit;
 }
 
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register — CYUTFest</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
 </head>
 <body>
 <div class="auth-page">
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <?php endif; ?>
       <?php if ($success): ?>
         <div class="alert alert-success"><?= htmlspecialchars($success) ?>
-          <a href="/auth/login.php" style="font-weight:700;color:var(--navy);">Sign In →</a>
+          <a href="<?= BASE_URL ?>/auth/login.php" style="font-weight:700;color:var(--navy);">Sign In →</a>
         </div>
       <?php endif; ?>
 
@@ -151,11 +151,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
 
       <div class="auth-divider"><span>already have an account?</span></div>
-      <a href="/auth/login.php" class="btn btn-outline btn-block">Sign In</a>
+      <a href="<?= BASE_URL ?>/auth/login.php" class="btn btn-outline btn-block">Sign In</a>
     </div>
   </div>
 
 </div>
-<script src="/assets/js/main.js"></script>
+<script src="<?= BASE_URL ?>/assets/js/main.js"></script>
 </body>
 </html>

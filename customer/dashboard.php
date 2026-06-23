@@ -34,7 +34,7 @@ include '../includes/navbar.php';
   <div class="topbar">
     <span class="topbar-title">My Dashboard</span>
     <div class="topbar-actions">
-      <a href="/customer/cart.php" class="btn btn-gold btn-sm">🛒 Cart <?= $cartCount > 0 ? "($cartCount)" : '' ?></a>
+      <a href="<?= BASE_URL ?>/customer/cart.php" class="btn btn-gold btn-sm">🛒 Cart <?= $cartCount > 0 ? "($cartCount)" : '' ?></a>
     </div>
   </div>
 
@@ -72,7 +72,7 @@ include '../includes/navbar.php';
   <div style="margin-bottom:28px;">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
       <h2 style="font-size:1.2rem;color:var(--navy);">Upcoming Events</h2>
-      <a href="/customer/events.php" class="btn btn-outline btn-sm">See All</a>
+      <a href="<?= BASE_URL ?>/customer/events.php" class="btn btn-outline btn-sm">See All</a>
     </div>
     <?php if (empty($upcomingEvents)): ?>
       <p style="color:var(--muted)">No events available right now.</p>
@@ -86,7 +86,7 @@ include '../includes/navbar.php';
                 <span>📍 <?= htmlspecialchars($ev['location']) ?></span>
                 <span>📅 <?= date('d M Y', strtotime($ev['event_date'])) ?></span>
               </div>
-              <a href="/customer/stores.php?event_id=<?= $ev['id'] ?>" class="btn btn-primary btn-sm btn-block">Browse Stores</a>
+              <a href="<?= BASE_URL ?>/customer/stores.php?event_id=<?= $ev['id'] ?>" class="btn btn-primary btn-sm btn-block">Browse Stores</a>
             </div>
           </div>
         <?php endforeach; ?>
@@ -98,14 +98,14 @@ include '../includes/navbar.php';
   <div class="card">
     <div class="card-header">
       <h3>Recent Orders</h3>
-      <a href="/customer/order-history.php" class="btn btn-outline btn-sm">View All</a>
+      <a href="<?= BASE_URL ?>/customer/order-history.php" class="btn btn-outline btn-sm">View All</a>
     </div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Order #</th><th>Event</th><th>Total</th><th>Status</th><th>Date</th></tr></thead>
         <tbody>
           <?php if (empty($recentOrders)): ?>
-            <tr><td colspan="5" style="text-align:center;color:var(--muted);padding:32px">No orders yet. <a href="/customer/events.php" style="color:var(--gold)">Start shopping →</a></td></tr>
+            <tr><td colspan="5" style="text-align:center;color:var(--muted);padding:32px">No orders yet. <a href="<?= BASE_URL ?>/customer/events.php" style="color:var(--gold)">Start shopping →</a></td></tr>
           <?php else: ?>
             <?php foreach ($recentOrders as $ord): ?>
               <tr>
